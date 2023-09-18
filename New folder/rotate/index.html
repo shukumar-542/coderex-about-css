@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .accordion {
+            max-width: 800px;
+        }
+
+        .accordion .content-box {
+            position: relative;
+            margin: 10px 20px;
+        }
+
+        .accordion .content-box .label {
+            position: relative;
+            padding: 10px;
+            background: #2694af;
+            color: #ffff;
+            cursor: pointer;
+        }
+
+        .accordion .content-box .label::before {
+            content: '+';
+            position: absolute;
+            top: 10%;
+            right: 20px;
+            transform: translate(-50%);
+            font-size: 1.5em;
+        }
+
+        .accordion .content-box .content {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            transition: 0.6s;
+        }
+        .accordion .content-box.active .content{
+            height: 150px;
+        }
+        .accordion .content-box.active .label::before{
+            content: "-";
+        }
+    </style>
+</head>
+
+<body>
+    <div class='accordion'>
+        <div class='content-box'>
+            <div class='label'>List One</div>
+            <div class='content'>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Odit ipsa dolore doloremque illo
+                    facere delectus officiis quos animi cupiditate ipsam.</p>
+            </div>
+        </div>
+        <!-- <div class='content-box'>
+            <div class='label'>List Two</div>
+            <div class='content'>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Odit ipsa dolore doloremque illo
+                    facere delectus officiis quos animi cupiditate ipsam.</p>
+            </div>
+        </div> -->
+    </div>
+    <script>
+        const accordion = document.getElementsByClassName('content-box')
+        console.log(accordion);
+        for (let i = 0; i < accordion.length; i++) {
+            accordion[i].addEventListener('click', function () {
+                this.classList.toggle('active')
+            })
+        }
+
+    </script>
+</body>
+
+</html>
